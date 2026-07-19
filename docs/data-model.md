@@ -165,7 +165,7 @@ One normalized item from one evidence source.
 | `recommendedAction` | string | Concrete next step |
 | `acceptanceCriterion` | string | Observable/testable outcome |
 | `stakeholders` | string array | Bounded labels |
-| `severityInputs` | object | `impact`, `likelihood`, `pilotBlocker`, `safetySecurityCompliance` |
+| `severityInputs` | object | `impact`, `likelihood`, `deploymentCriticality`, `safetySecurityCompliance`, `mitigation` |
 | `severity` | enum | `critical`, `high`, `medium`, `low`; computed in code |
 | `confidence` | number | 0–1 after reference validation |
 | `evidenceSufficiency` | enum | `sufficient`, `partial`, `insufficient` |
