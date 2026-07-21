@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CategoryBadge, SeverityBadge } from "@/components/badges";
 import { ArrowRightIcon, CheckIcon, DocumentIcon, WarningIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
-import { SampleNotice } from "@/components/sample-notice";
 import { orderGaps } from "@/domain/policies";
 import { humanize } from "@/lib/format";
 import { metroMoveFixture } from "@fixtures/metromove";
@@ -14,10 +13,6 @@ export const metadata: Metadata = { title: "MetroMove overview" };
 export default function MetroMoveOverviewPage() {
   const { engagement, evidenceSources, gaps, realityMapItems } = metroMoveFixture;
   const orderedGaps = orderGaps(gaps);
-  const severityCounts = orderedGaps.reduce(
-    (counts, gap) => ({ ...counts, [gap.severity]: counts[gap.severity] + 1 }),
-    { critical: 0, high: 0, medium: 0, low: 0 },
-  );
 
   return (
     <div>
@@ -35,10 +30,6 @@ export default function MetroMoveOverviewPage() {
           </Link>
         }
       />
-
-      <div className="mt-6">
-        <SampleNotice />
-      </div>
 
       <section aria-labelledby="readiness-heading" className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
         <div className="rounded-2xl border border-[#d8c5bd] bg-[#fffaf7] p-6 sm:p-7">

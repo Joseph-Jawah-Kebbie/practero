@@ -49,12 +49,12 @@ export default async function EvidenceSourcePage({ params }: SourcePageProps) {
       </header>
 
       <div className="mt-8 grid gap-7 xl:grid-cols-[minmax(0,1fr)_280px]">
-        <article id="source-text" className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-9">
+        <article id="source-text" className="scroll-mt-24 rounded-2xl border border-stone-200 bg-white p-6 sm:p-9">
           <div className="mb-7 flex items-center justify-between gap-4 border-b border-stone-100 pb-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-400">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-400">
                 Complete extracted text
-              </p>
+              </h2>
               <p className="mt-1 text-xs text-stone-500">Fictional fixture · no original file retained</p>
             </div>
             <span className="rounded-md bg-[#edf5f0] px-2.5 py-1 text-xs font-semibold text-[#286149]">
@@ -64,9 +64,9 @@ export default async function EvidenceSourcePage({ params }: SourcePageProps) {
           <div className="document-text max-w-3xl text-[15px] leading-8 text-stone-700">
             {paragraphs.map((paragraph, index) =>
               index === 0 ? (
-                <h2 key={paragraph} className="mb-6 text-xl font-semibold tracking-[-0.02em] text-stone-900">
+                <h3 key={paragraph} className="mb-6 text-xl font-semibold tracking-[-0.02em] text-stone-900">
                   {paragraph}
-                </h2>
+                </h3>
               ) : (
                 <p key={paragraph.slice(0, 40)}>{paragraph}</p>
               ),

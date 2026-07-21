@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This walkthrough demonstrates Practero’s current fixture-only milestone. MetroMove is fictional, every source is safe to publish, and every analysis view is labeled **Sample analysis**. Live GPT-5.6 analysis is not implemented yet.
+This walkthrough demonstrates Practero’s current fixture-only milestone. MetroMove is fictional, every source is safe to publish, and every demo route carries a visible **Sample analysis** disclosure. Live GPT-5.6 analysis is not implemented.
 
 ## Recommended judge walkthrough
 
@@ -84,7 +84,7 @@ Open **Executive Brief** and summarize:
 
 Close by reiterating that the current experience is validated sample analysis. Firebase persistence and live GPT-5.6 analysis are later milestones.
 
-## Suggested three-minute pacing
+## Suggested two-to-three-minute pacing
 
 | Time | Focus |
 | --- | --- |

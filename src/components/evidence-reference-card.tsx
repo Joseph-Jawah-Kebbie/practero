@@ -30,6 +30,7 @@ export function EvidenceReferenceCard({
         <p className="text-sm font-semibold text-stone-800">{reference.sourceTitle}</p>
         <Link
           href={`/demo/metromove/evidence/${reference.sourceId}#source-text`}
+          aria-label={`Open complete source: ${reference.sourceTitle}`}
           className="mt-2 inline-flex items-center gap-1.5 rounded-sm text-sm font-semibold text-[#236148] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
         >
           Open complete source

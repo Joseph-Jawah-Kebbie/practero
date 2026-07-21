@@ -1,9 +1,11 @@
 # Practero MVP Product Specification
 
-**Status:** Planning baseline for OpenAI Build Week  
+**Status:** Product baseline; the MetroMove fixture slice is implemented and later live-service phases are deferred
 **Working name:** Practero  
 **Tagline:** Where plans meet reality.  
 **Primary category:** Work & Productivity
+
+The current Build Week submission is the public, read-only MetroMove fixture journey. Authentication, persistence, uploads, and live OpenAI analysis described below are future product scope, not shipped behavior.
 
 ## Product definition
 

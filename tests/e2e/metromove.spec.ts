@@ -17,7 +17,7 @@ test("judge can trace the MetroMove connectivity gap into its deployment action"
   await expect(page.getByText(/Drivers reported that mobile data frequently drops/)).toBeVisible();
   await expect(page.getByText(/There is no local event queue, durable offline store/)).toBeVisible();
 
-  await page.getByRole("link", { name: "Open complete source" }).first().click();
+  await page.getByRole("link", { name: /Open complete source:/ }).first().click();
   await expect(page.getByRole("heading", { name: "Complete extracted text" })).toBeVisible();
   await expect(page.getByText(/Ride status updates must be recorded continuously/)).toBeVisible();
 

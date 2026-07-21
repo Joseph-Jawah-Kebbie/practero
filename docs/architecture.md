@@ -1,6 +1,6 @@
 # Practero MVP Architecture
 
-**Status:** Proposed architecture; implementation has not started.
+**Status:** Fixture slice implemented; live-service architecture remains proposed.
 
 ## Architecture goals
 
@@ -10,6 +10,10 @@
 - Store only bounded text and structured analysis data.
 - Make the public demo immediate while keeping private engagements private.
 - Preserve a practical path from Firestore to a relational backend later.
+
+## Current fixture implementation
+
+The current submission is a read-only Next.js application. Public pages import one runtime-validated MetroMove fixture module directly; deterministic domain policies validate references, severity, readiness, and ordering. There are no repository adapters, Firebase services, authenticated routes, uploads, or OpenAI calls yet. The sections below describe the intended architecture for later live-service phases.
 
 ## System context
 
@@ -117,7 +121,7 @@ interface DeploymentPlanRepository { /* plans, workstreams, brief */ }
 
 Repositories accept and return domain types, not Firestore snapshots, timestamps, references, or field-value sentinels. Infrastructure adapters own serialization. Application services own workflows and authorization preconditions. Deterministic policies—severity, readiness, reference matching, and plan ordering—remain pure functions.
 
-The public MetroMove implementation uses the same repository contracts with a read-only fixture adapter. This keeps the demo path representative without granting public Firestore writes.
+A later public MetroMove adapter can implement the same repository contracts once persistence services exist. The current deadline slice reads the validated fixture module directly and performs no public writes.
 
 ## Firebase usage
 

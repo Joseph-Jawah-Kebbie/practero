@@ -1,23 +1,18 @@
 # Practero Hackathon Implementation Plan
 
-**Status:** Proposal for review. No feature implementation has started.
+**Status:** Phase 1 MetroMove fixture slice implemented; later phases remain proposed.
 
 ## Current repository baseline
 
-At the time of this planning pass, the repository contains:
-
-- an Apache License 2.0 `LICENSE`;
-- a one-line `README.md`;
-- a comprehensive Node/Next.js-oriented `.gitignore`; and
-- an ignored `.env.local`, whose contents were not inspected.
-
-There is no application scaffold, package manifest, source directory, test configuration, Firebase configuration, sample data, or CI workflow yet. The existing `.gitignore` has an uncommitted user change that explicitly ignores local environment variants; it should be preserved.
+The repository now contains the Phase 1 Next.js application, validated MetroMove fixtures, deterministic domain policies, unit tests, and the public Playwright journey. The fixture-only application requires no runtime services or environment variables. Firebase, OpenAI, private engagements, uploads, and editable workflows remain unimplemented later-phase work.
 
 ## Delivery strategy
 
 Build the smallest demonstrable path first, then replace each seeded boundary with a live implementation. Keep the MetroMove journey continuously runnable. A phase is complete only when its exit criteria pass; partially wired controls are not presented as finished.
 
 ## Phase 1 — Foundation and static vertical slice
+
+**Status:** Implemented for the current fixture-only submission.
 
 ### Deliverables
 
@@ -199,7 +194,9 @@ Cut in this order while preserving the central demonstration:
 
 Do **not** cut: the immediate MetroMove route, the three realities, exact source evidence, the Reality Gap detail experience, seeded/live provenance, deterministic severity/readiness, Deployment Path traceability, safe failure states, or the required end-to-end test.
 
-## Required manual setup
+## Future manual setup
+
+The Firebase and OpenAI steps below apply only to later live-service phases. They are not required to build, run, or deploy the current fixture-only submission.
 
 ### Firebase
 

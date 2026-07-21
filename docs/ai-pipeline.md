@@ -1,6 +1,6 @@
 # Practero AI Pipeline
 
-**Status:** Proposed pipeline; prompts and model calls have not been implemented or evaluated.
+**Status:** Provider pipeline proposed; fixture schemas and deterministic validation policies implemented, with no model calls.
 
 ## Objectives
 

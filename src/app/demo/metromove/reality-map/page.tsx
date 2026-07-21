@@ -5,7 +5,7 @@ import { CategoryBadge, StatusBadge } from "@/components/badges";
 import { ExternalLinkIcon, LinkIcon } from "@/components/icons";
 import { PageHeader } from "@/components/page-header";
 import type { RealityMapItem } from "@/domain/types";
-import { formatConfidence, humanize } from "@/lib/format";
+import { formatConfidence } from "@/lib/format";
 import { metroMoveFixture } from "@fixtures/metromove";
 
 export const metadata: Metadata = { title: "MetroMove Reality Map" };
@@ -21,6 +21,18 @@ const sectionOrder: RealityMapItem["kind"][] = [
   "open_question",
   "claim",
 ];
+
+const sectionLabels: Record<RealityMapItem["kind"], string> = {
+  claim: "Claims",
+  requirement: "Requirements",
+  assumption: "Assumptions",
+  constraint: "Constraints",
+  stakeholder_need: "Stakeholder needs",
+  capability: "Capabilities",
+  expected_outcome: "Expected outcomes",
+  pain_point: "Pain points",
+  open_question: "Open questions",
+};
 
 export default function RealityMapPage() {
   const sections = sectionOrder
@@ -52,7 +64,7 @@ export default function RealityMapPage() {
                       href={`#${section.kind}`}
                       className="flex items-center justify-between rounded-md px-2 py-2 text-sm text-stone-600 hover:bg-stone-50 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2"
                     >
-                      {humanize(section.kind)}
+                      {sectionLabels[section.kind]}
                       <span className="font-mono text-[10px] text-stone-400">{section.items.length}</span>
                     </a>
                   </li>
@@ -67,7 +79,7 @@ export default function RealityMapPage() {
             <section key={section.kind} id={section.kind} className="scroll-mt-24">
               <div className="mb-4 flex items-center justify-between">
                 <h2 className="text-lg font-semibold tracking-[-0.02em] text-stone-900">
-                  {humanize(section.kind)}s
+                  {sectionLabels[section.kind]}
                 </h2>
                 <span className="text-xs text-stone-400">{section.items.length} mapped</span>
               </div>

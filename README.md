@@ -28,6 +28,8 @@ It includes:
 
 All current analysis is visibly labeled **Sample analysis**. MetroMove and every source, person, event, requirement, and finding are fictional. No live model is called in this milestone.
 
+Codex with GPT-5.6 was used to help build and verify this hackathon submission. The shipped application itself is intentionally model-free: it makes no OpenAI API request, needs no API credits, and renders only validated fixture data.
+
 ## Not implemented yet
 
 - Firebase Authentication or Firestore
@@ -85,6 +87,46 @@ The first Playwright run may require:
 ```bash
 npx playwright install chromium
 ```
+
+## Working routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Practero landing page and the three realities |
+| `/demo` | Redirect to the public MetroMove demo |
+| `/demo/metromove` | Engagement overview and readiness assessment |
+| `/demo/metromove/evidence` | Five fictional evidence sources |
+| `/demo/metromove/evidence/[sourceId]` | Complete source text and traceability metadata |
+| `/demo/metromove/reality-map` | Structured, source-linked findings |
+| `/demo/metromove/gaps` | Six prioritized Reality Gaps |
+| `/demo/metromove/gaps/[gapId]` | Gap evidence, action, and acceptance criteria |
+| `/demo/metromove/deployment-path` | Prioritized workstreams and pilot checks |
+| `/demo/metromove/executive-brief` | Sponsor-facing readiness summary |
+
+## Production run and deployment
+
+Build and run the production application locally:
+
+```bash
+npm ci
+npm run build
+npm run start
+```
+
+Then open [http://localhost:3000](http://localhost:3000). The current fixture-only application requires no environment variables.
+
+For a Vercel deployment from the repository root:
+
+```bash
+npx vercel@latest login
+npx vercel@latest deploy --prod
+```
+
+Follow the first-run prompts to select or create the Vercel project. Next.js is auto-detected; no Firebase or OpenAI configuration is required for this milestone.
+
+## Verified submission state
+
+On 21 July 2026, strict typecheck, zero-warning lint, all 21 unit tests, and the Next.js production build passed. The production build prerendered the complete public journey as static or statically generated pages, and a production-server smoke check confirmed the critical route content.
 
 ## MetroMove demonstration
 
