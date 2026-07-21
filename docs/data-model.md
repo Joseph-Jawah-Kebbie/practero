@@ -1,6 +1,6 @@
 # Practero MVP Data Model
 
-**Status:** Proposed domain and Firestore model; implementation has not started.
+**Status:** Fixture domain schemas implemented; Firestore model remains proposed.
 
 ## Modeling principles
 
@@ -165,7 +165,7 @@ One normalized item from one evidence source.
 | `recommendedAction` | string | Concrete next step |
 | `acceptanceCriterion` | string | Observable/testable outcome |
 | `stakeholders` | string array | Bounded labels |
-| `severityInputs` | object | `impact`, `likelihood`, `pilotBlocker`, `safetySecurityCompliance` |
+| `severityInputs` | object | `impact`, `likelihood`, `deploymentCriticality`, `safetySecurityCompliance`, `mitigation` |
 | `severity` | enum | `critical`, `high`, `medium`, `low`; computed in code |
 | `confidence` | number | 0–1 after reference validation |
 | `evidenceSufficiency` | enum | `sufficient`, `partial`, `insufficient` |
@@ -240,19 +240,14 @@ engagements/{engagementId}
 
 All private descendant documents duplicate `ownerId` and `engagementId`. This supports collection-group queries if later needed and makes defensive validation possible. The server still authorizes against the parent engagement; duplicated fields alone are not trusted.
 
-MetroMove data should initially live in version-controlled JSON/TypeScript fixtures:
+MetroMove data currently lives in one version-controlled TypeScript fixture module:
 
 ```text
 sample-data/metromove/
-  engagement.json
-  evidence-sources.json
-  evidence-chunks.json
-  extracted-items.json
-  reality-gaps.json
-  deployment-plan.json
+  index.ts
 ```
 
-Fixtures share runtime Zod schemas with production data and include a `fixtureVersion` plus a prominent seeded-data marker.
+The fixture shares runtime Zod schemas with the domain layer and includes a `fixtureVersion` plus a prominent sample-analysis marker. Splitting the records across persistence-oriented files remains a later option.
 
 ## Relationships and invariants
 

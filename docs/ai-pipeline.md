@@ -1,6 +1,6 @@
 # Practero AI Pipeline
 
-**Status:** Proposed pipeline; prompts and model calls have not been implemented or evaluated.
+**Status:** Provider pipeline proposed; fixture schemas and deterministic validation policies implemented, with no model calls.
 
 ## Objectives
 
@@ -152,15 +152,16 @@ The model proposes structured inputs, not the final severity:
 type SeverityInputs = {
   impact: 1 | 2 | 3 | 4;
   likelihood: 1 | 2 | 3 | 4;
-  pilotBlocker: boolean;
+  deploymentCriticality: boolean;
   safetySecurityCompliance: boolean;
+  mitigation: "none" | "partial" | "adequate";
 };
 ```
 
-Application code computes `riskScore = impact * likelihood` and classifies:
+Application code computes an adjusted score from `impact * likelihood`, adds 2 for deployment criticality, and subtracts 1 for partial or 3 for adequate mitigation. It classifies:
 
-- **Critical:** `pilotBlocker && impact === 4`, or `safetySecurityCompliance && likelihood >= 2`, or score at least 12.
-- **High:** score 8–11, or any other pilot blocker.
+- **Critical:** deployment-critical impact 4 without adequate mitigation, safety/security/compliance exposure with likelihood at least 2, or adjusted score at least 12.
+- **High:** adjusted score 8–11, or any other deployment-critical gap without adequate mitigation.
 - **Medium:** score 4–7.
 - **Low:** score 1–3.
 
